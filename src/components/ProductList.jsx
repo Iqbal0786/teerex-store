@@ -27,6 +27,11 @@ export default function ProductList() {
         dispatch(product_search(searchInput.split(" ")))
 
     }
+    const searchOnKeyPress=(e)=>{
+            if(e.key=="Enter"){
+                dispatch(product_search(searchInput.split(" ")))
+            }
+    }
 
          useEffect(()=>{
             //  if(selectedCategory.length==0){
@@ -52,7 +57,7 @@ export default function ProductList() {
      <div className="searchDiv">
         <input type="text" placeholder='Search for products...' onChange={(e)=>{
             setSearchInput(e.target.value)
-        }} />
+        }} onKeyPress={searchOnKeyPress} />
          <div className="searchIconDiv" onClick={searchDataHandler}>
             <i class="fa fa-search" aria-hidden="true"></i>
          </div>
