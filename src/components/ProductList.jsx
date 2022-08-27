@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { get_product_request, product_filter } from '../Redux/ProductConstant';
+import { get_product_request, product_filter, product_search } from '../Redux/ProductConstant';
 import "../Styles/styles.css"
 import SingleProductCard from './SingleProductCard'
 export default function ProductList() {
        const dispatch= useDispatch();
        const {fetchedData,filterData,loading,error}= useSelector((store)=>store.productReducer);
-    //    console.log(fetchedData)
+       console.log(filterData)
        const [selectedCategory,setSelectedCategory]=useState([]);
+       const [searchInput,setSearchInput]=useState("")
 
        const selectCategoryHandler=(e)=>{
              const {checked,value}=e.target;
@@ -19,7 +20,13 @@ export default function ProductList() {
                 setSelectedCategory([...selectedCategory.filter((e)=>e!=value)])
              }
        }
-    //    console.log(selectedCategory)
+       console.log(filterData.filter((e)=>e.color=='Black' && e.type=="Polo"))
+             
+    const searchDataHandler=()=>{
+        console.log(searchInput.split(" "))
+        dispatch(product_search(searchInput.split(" ")))
+
+    }
 
          useEffect(()=>{
              if(selectedCategory.length==0){
@@ -43,8 +50,10 @@ export default function ProductList() {
       </div>
     </div>
      <div className="searchDiv">
-        <input type="text" placeholder='Search for products...' />
-         <div className="searchIconDiv">
+        <input type="text" placeholder='Search for products...' onChange={(e)=>{
+            setSearchInput(e.target.value)
+        }} />
+         <div className="searchIconDiv" onClick={searchDataHandler}>
             <i class="fa fa-search" aria-hidden="true"></i>
          </div>
      </div>

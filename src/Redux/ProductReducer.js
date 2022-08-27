@@ -1,4 +1,4 @@
-import { PRODUCT_ERROR, PRODUCT_FILTER, PRODUCT_LOADING, PRODUCT_SUCESS } from "./ProductConstant"
+import { PRODUCT_ERROR, PRODUCT_FILTER, PRODUCT_LOADING, PRODUCT_SEARCH, PRODUCT_SUCESS } from "./ProductConstant"
 
 const initialData={
     fetchedData:[],
@@ -12,6 +12,7 @@ export const productReducer=(store=initialData,{type,payload})=>{
         case PRODUCT_ERROR : return {...store, loading:false,error:true}
         case PRODUCT_SUCESS : return {...store , fetchedData:[...payload] ,filterData:[...payload] , error:false,loading:false}
         case PRODUCT_FILTER : return {...store, filterData:[...filterHandler(store.fetchedData,payload)]}
+        case PRODUCT_SEARCH : return {...store , filterData:[...searchDataHandler(store.fetchedData,payload)]}
         default : return store
     }
 
@@ -40,7 +41,26 @@ const filterHandler=(data ,selectedValues)=>{
           
             return  e.price>=450
          }
+         
     })
-    console.log("filtered data" , result)
+    // console.log("filtered data" , result)
     return result
+}
+
+const searchDataHandler=(data,inputValues)=>{
+
+      let search_result= data.filter((e)=>{
+                if((e.color==inputValues[0] && e.type==inputValues[1])){
+                    return e
+                }
+            //   if( e.color==inputValues[0] ){
+            //           return e
+            //     }
+            //      if( e.type==inputValues[0]){
+            //         return e
+            //   }
+      });
+      console.log("searced data" , search_result)
+      return search_result.length?search_result:data
+
 }
