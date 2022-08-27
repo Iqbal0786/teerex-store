@@ -19,7 +19,20 @@ export default function ProductList() {
      </div>
       
       <div className="contentDiv">
-        <div className='filter_div'></div>
+        <div className='filter_div'>
+            <div className="checkBoxDiv">
+                <h4>Color</h4>
+                <div className="check_box">
+                <input type="checkbox" name=""  /> <label htmlFor="">Red</label>
+                </div>
+                <div className="check_box">
+                <input type="checkbox" name=""  /> <label htmlFor="">Blue</label>
+                </div>
+                <div className="check_box">
+                <input type="checkbox" name=""  /> <label htmlFor="">Green</label>
+                </div>
+            </div>
+        </div>
         <div className='product_list_div'></div>
       </div>
     </>
