@@ -71,7 +71,7 @@ input{
 .contentDiv >.filter_div{
     width: 30%;
     height: 70%;
-    border: 1px solid blue;
+    /* border: 1px solid blue; */
     box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
 }
 .checkBoxDiv{
@@ -80,15 +80,15 @@ input{
     margin-left: 10px;
     display: flex;
     flex-direction: column;
-    border: 1px solid yellow;
+    /* border: 1px solid yellow; */
     padding: 10px;
 }
 .checkBoxDiv > .check_box{
-    width: 50%;
+    width: 80%;
     text-align: center;
     /* border: 1px solid blue; */
     position: relative;
-    margin-bottom: 10px;
+    margin-bottom: 7px;
 }
 .checkBoxDiv>h4{
     font-family: sans-serif;
@@ -105,7 +105,7 @@ input{
 .check_box > input{
     width: 15px;
     height: 15px;
-    margin-left: -55px;
+    margin-left: -85px;
     background-color: #979292;
     cursor: pointer;
 }
