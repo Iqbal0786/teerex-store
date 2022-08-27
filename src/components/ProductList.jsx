@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { get_product_request } from '../Redux/ProductConstant';
 import "../Styles/styles.css"
@@ -7,6 +7,21 @@ export default function ProductList() {
        const dispatch= useDispatch();
        const {fetchedData,filterData,loading,error}= useSelector((store)=>store.productReducer);
        console.log(fetchedData)
+       const [selectedCategory,setSelectedCategory]=useState([]);
+
+       const selectCategoryHandler=(e)=>{
+             const {checked,value}=e.target;
+             if(checked){
+              setSelectedCategory([...selectedCategory,value])
+             }
+             else{
+                setSelectedCategory([...selectedCategory.filter((e)=>e!=value)])
+             }
+       }
+       console.log(selectedCategory)
+
+
+
        useEffect(()=>{
         dispatch(get_product_request())
        },[])
@@ -33,49 +48,49 @@ export default function ProductList() {
             <div className="checkBoxDiv">
                 <h4>Color</h4>
                 <div className="check_box">
-                <input type="checkbox" name=""  value={'Red'} /> <label htmlFor="">Red</label>
+                <input type="checkbox" name=""  onChange={selectCategoryHandler} value={'Red'} /> <label htmlFor="">Red</label>
                 </div>
                 <div className="check_box">
-                <input type="checkbox" name=""  value={"Blue"} /> <label htmlFor="">Blue</label>
+                <input type="checkbox" name="" onChange={selectCategoryHandler}  value={"Blue"} /> <label htmlFor="">Blue</label>
                 </div>
                 <div className="check_box">
-                <input type="checkbox" name=""  value={'Green'} /> <label htmlFor="">Green</label>
+                <input type="checkbox" name="" onChange={selectCategoryHandler} value={'Green'} /> <label htmlFor="">Green</label>
                 </div>
             </div>
               {/* gender filter box */}
               <div className="checkBoxDiv">
                 <h4>Gender</h4>
                 <div className="check_box">
-                <input type="checkbox" name=""  value={'Men'} /> <label htmlFor="">Men</label>
+                <input type="checkbox" name="" onChange={selectCategoryHandler} value={'Men'} /> <label htmlFor="">Men</label>
                 </div>
                 <div className="check_box">
-                <input type="checkbox" name=""  value={"Women"} /> <label htmlFor="">Women</label>
+                <input type="checkbox" name="" onChange={selectCategoryHandler} value={"Women"} /> <label htmlFor="">Women</label>
                 </div>
             </div>
             {/* price filter box */}
             <div className="checkBoxDiv">
                 <h4>Price</h4>
                 <div className="check_box">
-                <input type="checkbox" name=""  value={'0-250'} /> <label htmlFor="">0- Rs 250</label>
+                <input type="checkbox" name="" onChange={selectCategoryHandler} value={'0-250'} /> <label htmlFor="">0- Rs 250</label>
                 </div>
                 <div className="check_box">
-                <input type="checkbox" name=""  value={"251-450"} /> <label htmlFor="">251- Rs 450</label>
+                <input type="checkbox" name="" onChange={selectCategoryHandler} value={"251-450"} /> <label htmlFor="">251- Rs 450</label>
                 </div>
                 <div className="check_box">
-                <input type="checkbox" name=""  value={'450'} /> <label htmlFor=""> Rs 450</label>
+                <input type="checkbox" name="" onChange={selectCategoryHandler} value={'450'} /> <label htmlFor=""> Rs 450</label>
                 </div>
             </div>
              {/* type filter div */}
              <div className="checkBoxDiv">
                 <h4>Type</h4>
                 <div className="check_box">
-                <input type="checkbox" name=""  value={'Polo'} /> <label htmlFor="">Polo</label>
+                <input type="checkbox" name="" onChange={selectCategoryHandler} value={'Polo'} /> <label htmlFor="">Polo</label>
                 </div>
                 <div className="check_box">
-                <input type="checkbox" name=""  value={"Hoodie"} /> <label htmlFor="">Hoodie</label>
+                <input type="checkbox" name="" onChange={selectCategoryHandler} value={"Hoodie"} /> <label htmlFor="">Hoodie</label>
                 </div>
                 <div className="check_box">
-                <input type="checkbox" name=""  value={'Basic'} /> <label htmlFor="">Basic</label>
+                <input type="checkbox" name="" onChange={selectCategoryHandler} value={'Basic'} /> <label htmlFor="">Basic</label>
                 </div>
             </div>
              

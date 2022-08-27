@@ -1,6 +1,7 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 export default function SingleProductCard({item}) {
+    
   return (
     <>
      <div className="product_card">
