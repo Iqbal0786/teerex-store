@@ -4,3 +4,54 @@
     background-color: #f1f0f0;
     border: 1px solid red;
 }
+#navBar>.menu{
+    width: 100%;
+    display: flex;
+    margin:10px;
+    justify-content: space-between;
+    position: relative;
+}
+i{
+    color: black;
+    margin-right: 5%;
+    position: relative;
+  
+}
+#cart_item_count{
+ font-size: 16px;
+ position: absolute;
+  margin-left: 3px;
+  font-weight: bold;
+
+}
+
+.searchDiv{
+    width: 40%;
+    height: 70px;
+    margin-left: auto;
+    margin-right: 20%;
+    margin-top: 5%;
+    /* border: 1px solid blue; */
+    display: flex;
+    justify-content: space-around;
+}
+input{
+    width: 70%;
+    height: 40px;
+    border-top: 0px;
+    border-left: 0px;
+    border-right: 0px;
+    outline: none;
+}
+.searchIconDiv{
+    width: 47px;
+    height: 40px;
+    margin-right: auto;
+    margin-left: 5px;
+    /* border: 1px solid red; */
+    background-color: #979292;
+    text-align: center;
+    padding-top: 8px;
+    border-radius: 5px;
+    cursor: pointer;
+}
