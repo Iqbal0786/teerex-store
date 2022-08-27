@@ -1,13 +1,13 @@
 import React from 'react'
 
-export default function SingleProductCard() {
+export default function SingleProductCard({item}) {
   return (
     <>
      <div className="product_card">
-        <p className='product_title'>Hoodie</p>
-        <img src="https://m.media-amazon.com/images/I/61oIQ4sgayL._UL1333_.jpg" alt="" />
+        <p className='product_title'>{item.name}</p>
+        <img src={`${item.imageURL}`} alt=" PRODUCT IMAGES" />
          <div className="item_details">
-            <p>Rs 250</p>
+            <p>Rs{item.price}</p>
             <button>Add to Cart</button>
          </div>
      </div>

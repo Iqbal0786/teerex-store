@@ -1,7 +1,15 @@
-import React from 'react'
+import React, { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { get_product_request } from '../Redux/ProductConstant';
 import "../Styles/styles.css"
 import SingleProductCard from './SingleProductCard'
 export default function ProductList() {
+       const dispatch= useDispatch();
+       const {fetchedData,filterData,loading,error}= useSelector((store)=>store.productReducer);
+       console.log(fetchedData)
+       useEffect(()=>{
+        dispatch(get_product_request())
+       },[])
   return (
     <>
     <div id="navBar">
@@ -73,7 +81,15 @@ export default function ProductList() {
              
         </div>
         <div className='product_list_div'>
-            <SingleProductCard/>
+            {
+                loading?<img className='loaderImg' src='https://i.pinimg.com/originals/15/f2/09/15f209bdae6da376665c3a1b2cb781ea.gif'/> : error? <img className='loaderImg' src='https://i.pinimg.com/originals/15/f2/09/15f209bdae6da376665c3a1b2cb781ea.gif'/> : fetchedData.map((item)=>{
+                    return (
+                  <SingleProductCard item={item} key={item.id}/>
+                    )
+                })
+            }
+
+            
          
         </div>
       </div>
