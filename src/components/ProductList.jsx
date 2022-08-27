@@ -1,26 +1,33 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { get_product_request } from '../Redux/ProductConstant';
+import { get_product_request, product_filter } from '../Redux/ProductConstant';
 import "../Styles/styles.css"
 import SingleProductCard from './SingleProductCard'
 export default function ProductList() {
        const dispatch= useDispatch();
        const {fetchedData,filterData,loading,error}= useSelector((store)=>store.productReducer);
-       console.log(fetchedData)
+    //    console.log(fetchedData)
        const [selectedCategory,setSelectedCategory]=useState([]);
 
        const selectCategoryHandler=(e)=>{
              const {checked,value}=e.target;
              if(checked){
-              setSelectedCategory([...selectedCategory,value])
+              setSelectedCategory([...selectedCategory,value]);
+              
              }
              else{
                 setSelectedCategory([...selectedCategory.filter((e)=>e!=value)])
              }
        }
-       console.log(selectedCategory)
+    //    console.log(selectedCategory)
 
-
+         useEffect(()=>{
+             if(selectedCategory.length==0){
+                dispatch(get_product_request())
+                return 
+             }
+            dispatch(product_filter(selectedCategory))
+         },[selectedCategory])
 
        useEffect(()=>{
         dispatch(get_product_request())
@@ -97,7 +104,7 @@ export default function ProductList() {
         </div>
         <div className='product_list_div'>
             {
-                loading?<img className='loaderImg' src='https://i.pinimg.com/originals/15/f2/09/15f209bdae6da376665c3a1b2cb781ea.gif'/> : error? <img className='loaderImg' src='https://i.pinimg.com/originals/15/f2/09/15f209bdae6da376665c3a1b2cb781ea.gif'/> : fetchedData.map((item)=>{
+                loading?<img className='loaderImg' src='https://i.pinimg.com/originals/15/f2/09/15f209bdae6da376665c3a1b2cb781ea.gif'/> : error? <img className='loaderImg' src='https://i.pinimg.com/originals/15/f2/09/15f209bdae6da376665c3a1b2cb781ea.gif'/> : filterData.map((item)=>{
                     return (
                   <SingleProductCard item={item} key={item.id}/>
                     )
