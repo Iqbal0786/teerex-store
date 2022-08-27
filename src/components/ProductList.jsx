@@ -6,7 +6,7 @@ import SingleProductCard from './SingleProductCard'
 export default function ProductList() {
        const dispatch= useDispatch();
        const {fetchedData,filterData,loading,error}= useSelector((store)=>store.productReducer);
-       console.log(filterData)
+        const mappingData= filterData.length?filterData:fetchedData
        const [selectedCategory,setSelectedCategory]=useState([]);
        const [searchInput,setSearchInput]=useState("")
 
@@ -29,10 +29,10 @@ export default function ProductList() {
     }
 
          useEffect(()=>{
-             if(selectedCategory.length==0){
-                dispatch(get_product_request())
-                return 
-             }
+            //  if(selectedCategory.length==0){
+            //     dispatch(get_product_request())
+            //     return 
+            //  }
             dispatch(product_filter(selectedCategory))
          },[selectedCategory])
 
@@ -113,7 +113,7 @@ export default function ProductList() {
         </div>
         <div className='product_list_div'>
             {
-                loading?<img className='loaderImg' src='https://i.pinimg.com/originals/15/f2/09/15f209bdae6da376665c3a1b2cb781ea.gif'/> : error? <img className='loaderImg' src='https://i.pinimg.com/originals/15/f2/09/15f209bdae6da376665c3a1b2cb781ea.gif'/> : filterData.map((item)=>{
+                loading?<img className='loaderImg' src='https://i.pinimg.com/originals/15/f2/09/15f209bdae6da376665c3a1b2cb781ea.gif'/> : error? <img className='loaderImg' src='https://cdn.dribbble.com/users/2573223/screenshots/7038977/media/4bf93fe9739caa636cd3d09f79d453b6.gif'/> : mappingData.map((item)=>{
                     return (
                   <SingleProductCard item={item} key={item.id}/>
                     )
