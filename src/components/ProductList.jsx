@@ -1,5 +1,6 @@
 import React from 'react'
 import "../Styles/styles.css"
+import SingleProductCard from './SingleProductCard'
 export default function ProductList() {
   return (
     <>
@@ -71,7 +72,10 @@ export default function ProductList() {
             </div>
              
         </div>
-        <div className='product_list_div'></div>
+        <div className='product_list_div'>
+            <SingleProductCard/>
+         
+        </div>
       </div>
     </>
   )
