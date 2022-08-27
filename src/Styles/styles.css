@@ -131,7 +131,8 @@ input{
 }
 .product_card > img{
     width: 100%;
-    height: 170px;
+    height: 150px;
+    margin-top: 20px;
 }
 .product_card > .item_details{
     width: 100%;
@@ -143,6 +144,7 @@ input{
     left: 5%;
     font-family: sans-serif;
     top: 2%;
+    color: #08345b;
 }
 .item_details > button{
     width: 40%;
@@ -153,4 +155,7 @@ input{
     margin-top: -7px;
     border-radius: 5px;
     cursor: pointer;
+}
+.item_details > p{
+    font-weight: bold;
 }
