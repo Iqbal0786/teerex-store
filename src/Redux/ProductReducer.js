@@ -28,6 +28,18 @@ const filterHandler=(data ,selectedValues)=>{
          else if(selectedValues.includes(e.type)){
             return e
          }
+         else if(selectedValues.includes("250")){
+          
+            return e.price<=250
+         }
+         else if(selectedValues.includes("251")){
+          
+            return (e.price>=251 && e.price<=450)
+         }
+         else if(selectedValues.includes("450")){
+          
+            return  e.price>=450
+         }
     })
     console.log("filtered data" , result)
     return result

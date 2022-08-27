@@ -78,10 +78,10 @@ export default function ProductList() {
             <div className="checkBoxDiv">
                 <h4>Price</h4>
                 <div className="check_box">
-                <input type="checkbox" name="" onChange={selectCategoryHandler} value={'0-250'} /> <label htmlFor="">0- Rs 250</label>
+                <input type="checkbox" name="" onChange={selectCategoryHandler} value={'250'} /> <label htmlFor="">0- Rs 250</label>
                 </div>
                 <div className="check_box">
-                <input type="checkbox" name="" onChange={selectCategoryHandler} value={"251-450"} /> <label htmlFor="">251- Rs 450</label>
+                <input type="checkbox" name="" onChange={selectCategoryHandler} value={"251"} /> <label htmlFor="">251- Rs 450</label>
                 </div>
                 <div className="check_box">
                 <input type="checkbox" name="" onChange={selectCategoryHandler} value={'450'} /> <label htmlFor=""> Rs 450</label>
