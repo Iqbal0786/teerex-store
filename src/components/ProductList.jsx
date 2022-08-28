@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+import {useNavigate} from "react-router-dom"
 import { get_product_request, product_filter, product_search } from '../Redux/ProductConstant';
 import "../Styles/styles.css"
 import SingleProductCard from './SingleProductCard'
 export default function ProductList() {
        const dispatch= useDispatch();
-      
+      const navigate= useNavigate()
        const {fetchedData,filterData,loading,error}= useSelector((store)=>store.productReducer);
         const mappingData= filterData.length?filterData:fetchedData
        const [selectedCategory,setSelectedCategory]=useState([]);
@@ -50,7 +51,11 @@ export default function ProductList() {
     <div id="navBar">
       <div className="menu">
         <h3>TeeRex Store</h3>
-        <i class="fa fa-shopping-cart" aria-hidden="true" style={{fontSize:"35px"}}>
+        <i class="fa fa-shopping-cart" aria-hidden="true" style={{fontSize:"35px" , cursor:"pointer"}}
+         onClick={()=>{
+           navigate("/cart")
+         }}
+        >
             <span id='cart_item_count'>0</span>
         </i>
       </div>
