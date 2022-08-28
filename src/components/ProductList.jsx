@@ -23,10 +23,10 @@ export default function ProductList() {
                 setSelectedCategory([...selectedCategory.filter((e)=>e!=value)])
              }
        }
-       console.log(filterData.filter((e)=>e.color=='Black' && e.type=="Polo"))
+
              
     const searchDataHandler=()=>{
-        console.log(searchInput.split(" "))
+        //console.log(searchInput.split(" "))
         dispatch(product_search(searchInput.split(" ")))
 
     }
