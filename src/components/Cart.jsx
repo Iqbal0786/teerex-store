@@ -26,7 +26,7 @@ export default function Cart() {
                <div className="button_box">
                  <div className="increase_decrease_box">
                   <button>+</button>
-                  <div>0</div>
+                  <div style={{marginTop:"6px"}}>1</div>
                   <button>-</button>
                  </div>
                   <button>Delete</button>

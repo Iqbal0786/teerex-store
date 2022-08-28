@@ -173,7 +173,7 @@ input{
 }
 .cart_main > .cart_content{
     width: 50%;
-    height: 70%;
+    height: 80%;
     border: 1px solid blue;
     margin-left: 13%;
     padding: 10px;
@@ -182,10 +182,11 @@ input{
 .cart_content > .cart_content_main{
     width: 100%;
     height: 130px;
-    border: 1px solid green;
+    /* border: 1px solid green; */
     display: flex;
     justify-content: space-between;
     margin: auto;
+    border-bottom: 1px solid gray;
 }
 .cart_content_main>img{
     width:25%;
@@ -195,7 +196,7 @@ input{
     width: 25%;
     height: 50px;
     margin-top: 10px;
-    border:1px solid rgb(116, 116, 0);
+    /* border:1px solid rgb(116, 116, 0); */
 }
 .price_and_title_box > p{
     font-family: sans-serif;
@@ -205,24 +206,32 @@ input{
     width: 40%;
     height: 70px;
     margin-top: 20px;
-    border: 1px solid purple;
+    /* border: 1px solid purple; */
     display: flex;
     justify-content: space-around;
-}
+    margin-right: 15px;
+  }
 .button_box > .increase_decrease_box{
     width: 40%;
      display: flex;
      justify-content: space-between;
      gap: 10px;
-     border: 1px solid magenta;
+     /* border: 1px solid magenta; */
 }
 .button_box > button{
     width: 130px;
     height: 40px;
+    background-color: #ff3c3c;
+    border-radius: 7px;
+    border:none;
 }
 .increase_decrease_box > button{
     width: 40px;
     height: 40px;
     border-radius: 50%;
     border: none;
+    color:black
+}
+button{
+    cursor: pointer;
 }
