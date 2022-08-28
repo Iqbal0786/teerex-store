@@ -174,9 +174,11 @@ input{
 .cart_main > .cart_content{
     width: 50%;
     height: 80%;
-    border: 1px solid blue;
+    /* border: 1px solid blue; */
     margin-left: 13%;
     padding: 10px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px; 
+    overflow: auto;
 
 }
 .cart_content > .cart_content_main{
@@ -187,6 +189,7 @@ input{
     justify-content: space-between;
     margin: auto;
     border-bottom: 1px solid gray;
+    margin-bottom: 15px;
 }
 .cart_content_main>img{
     width:25%;
