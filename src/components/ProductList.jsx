@@ -6,7 +6,8 @@ import "../Styles/styles.css"
 import SingleProductCard from './SingleProductCard'
 export default function ProductList() {
        const dispatch= useDispatch();
-      const navigate= useNavigate()
+      const navigate= useNavigate();
+      const {cartData} = useSelector((store)=>store.CartReducer)
        const {fetchedData,filterData,loading,error}= useSelector((store)=>store.productReducer);
         const mappingData= filterData.length?filterData:fetchedData
        const [selectedCategory,setSelectedCategory]=useState([]);
@@ -56,7 +57,7 @@ export default function ProductList() {
            navigate("/cart")
          }}
         >
-            <span id='cart_item_count'>0</span>
+            <span id='cart_item_count'>{cartData.length?cartData.length:""}</span>
         </i>
       </div>
     </div>
