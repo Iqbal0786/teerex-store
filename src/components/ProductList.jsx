@@ -5,6 +5,7 @@ import "../Styles/styles.css"
 import SingleProductCard from './SingleProductCard'
 export default function ProductList() {
        const dispatch= useDispatch();
+      
        const {fetchedData,filterData,loading,error}= useSelector((store)=>store.productReducer);
         const mappingData= filterData.length?filterData:fetchedData
        const [selectedCategory,setSelectedCategory]=useState([]);
