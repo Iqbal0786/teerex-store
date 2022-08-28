@@ -6,8 +6,12 @@ const initialState={
 
 export const CartReducer=(store=initialState,{type,payload})=>{
       switch(type){
-         case ADD_CART_ITEM: return {...store , cartData:cartData.push(payload)}
+         case ADD_CART_ITEM: 
+          const temp= store.cartData;
+          temp.push(payload)
+         return {...store , cartData:[...temp]}
          case DELETE_CART_ITEM : return {cartData:[...deleteItem(store.cartData,payload)]}
+         default: return store
       }
 }
 
