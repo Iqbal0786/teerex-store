@@ -2,8 +2,10 @@ import React, { useEffect } from 'react'
 import "../Styles/styles.css"
 import {useDispatch, useSelector} from "react-redux"
 import { delete_cart_item } from '../Redux/CartConstant';
+import {useNavigate} from "react-router-dom"
 export default function Cart() {
   const {cartData}= useSelector((store)=>store.CartReducer);
+  const navigate=useNavigate()
   const dispatch=useDispatch()
   //.log(cartData)
   console.log("current item in cart ", cartData)
@@ -25,7 +27,7 @@ export default function Cart() {
        <p>Shopping Cart</p>
        <div className="cart_content">
           {
-            cartData.map((e , i)=>{
+            cartData.length? cartData.map((e , i)=>{
               return (
                 <div className="cart_content_main">
               <img src="https://geektrust.s3.ap-southeast-1.amazonaws.com/coding-problems/shopping-cart/polo-tshirts.png" alt="" />
@@ -46,7 +48,10 @@ export default function Cart() {
                </div>
           </div>
               )
-            })
+            }):  <div className='no_cart_item_div'>
+                   <p onClick={()=>{navigate("/")}}>Start adding items in the cart</p>
+                  <img src="https://c.tenor.com/8BeuRyZSb90AAAAC/shopping-cart-shopping.gif" alt="" />
+            </div>
           }
           
         </div>

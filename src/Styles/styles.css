@@ -239,3 +239,11 @@ input{
 button{
     cursor: pointer;
 }
+
+.no_cart_item_div > p{
+    font-size: 19px;
+    font-family:monospace;
+    text-decoration: underline;
+    color: blue;
+    cursor: pointer;
+}
