@@ -1,10 +1,11 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import "../Styles/styles.css"
 import {useDispatch, useSelector} from "react-redux"
 import { delete_cart_item } from '../Redux/CartConstant';
 import {useNavigate} from "react-router-dom"
 export default function Cart() {
   const {cartData}= useSelector((store)=>store.CartReducer);
+  const [itemQuanitiy,setItemQuantity]=useState(1);
   const navigate=useNavigate()
   const dispatch=useDispatch()
   //.log(cartData)
@@ -38,7 +39,7 @@ export default function Cart() {
                <div className="button_box">
                  <div className="increase_decrease_box">
                   <button>+</button>
-                  <div style={{marginTop:"6px"}}>1</div>
+                  <div style={{marginTop:"6px"}}>{itemQuanitiy}</div>
                   <button>-</button>
                  </div>
                   <button onClick={()=>{
