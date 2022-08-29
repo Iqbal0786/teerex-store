@@ -4,8 +4,8 @@ import { add_cart_item } from '../Redux/CartConstant'
 
 export default function SingleProductCard({item}) {
    const dispatch=useDispatch();
-   const data = useSelector((store)=>store.CartReducer)
-   console.log("cart data" , data)
+   // const data = useSelector((store)=>store.CartReducer)
+   // console.log("cart data" , data)
   return (
     <>
      <div className="product_card">

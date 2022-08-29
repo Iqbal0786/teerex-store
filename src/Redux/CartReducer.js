@@ -45,7 +45,15 @@ const increaseQuantity = (cart, id) => {
       curelem.currentQuantity++;
       return curelem;
     }
+
   });
+//  let updatedCart=[]
+//    for(let i=0;i<cart.cartData.length;i++){
+//      if(cart.cartData[i].id==id){
+//         cart.cartData[i].currentQuantity++
+//         updatedCart.push(cart.cartData[i])
+//      }
+//    }
   console.log("cart after increase quantity", updatedCart);
   return updatedCart;
 };
