@@ -1,9 +1,13 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import "../Styles/styles.css"
-import {useSelector} from "react-redux"
+import {useDispatch, useSelector} from "react-redux"
+import { delete_cart_item } from '../Redux/CartConstant';
 export default function Cart() {
   const {cartData}= useSelector((store)=>store.CartReducer);
-  console.log(cartData)
+  const dispatch=useDispatch()
+  //.log(cartData)
+  console.log("current item in cart ", cartData)
+
   return (
     <>
     <div id="navBar">
@@ -13,7 +17,7 @@ export default function Cart() {
          onClick={()=>{
          }}
         >
-            <span id='cart_item_count'>{ cartData.length?cartData.length:""}</span>
+            <span id='cart_item_count'>{ cartData.length>0?cartData.length:""}</span>
         </i>
       </div>
     </div>
@@ -21,7 +25,7 @@ export default function Cart() {
        <p>Shopping Cart</p>
        <div className="cart_content">
           {
-            cartData.map((e)=>{
+            cartData.map((e , i)=>{
               return (
                 <div className="cart_content_main">
               <img src="https://geektrust.s3.ap-southeast-1.amazonaws.com/coding-problems/shopping-cart/polo-tshirts.png" alt="" />
@@ -35,7 +39,10 @@ export default function Cart() {
                   <div style={{marginTop:"6px"}}>1</div>
                   <button>-</button>
                  </div>
-                  <button>Delete</button>
+                  <button onClick={()=>{
+                      console.log("clicked item id" , e.id, e)
+                      dispatch(delete_cart_item(e.id))
+                  }}>Delete</button>
                </div>
           </div>
               )

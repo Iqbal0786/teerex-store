@@ -10,11 +10,13 @@ export const CartReducer=(store=initialState,{type,payload})=>{
           const temp= store.cartData;
           temp.push(payload)
          return {...store , cartData:[...temp]}
-         case DELETE_CART_ITEM : return {cartData:[...deleteItem(store.cartData,payload)]}
+         case DELETE_CART_ITEM : return {cartData:deleteItem(store.cartData,payload)}
          default: return store
       }
 }
 
-const deleteItem=(cart,index)=>{
-    return cart.splice(index,1)
+const deleteItem=(cart,id)=>{
+    // let ans=cart.filter(e=>e.id!=id)
+    // console.log(ans)
+    return cart.filter(e=>e.id!=id)
 }

@@ -189,7 +189,8 @@ input{
     justify-content: space-between;
     margin: auto;
     border-bottom: 1px solid gray;
-    margin-bottom: 15px;
+    border-top: 1px solid gray;
+    margin-bottom: 25px;
 }
 .cart_content_main>img{
     width:25%;
