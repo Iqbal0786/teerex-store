@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import "../Styles/styles.css"
 import {useDispatch, useSelector} from "react-redux"
-import { delete_cart_item } from '../Redux/CartConstant';
+import { decrease_item_quantity, delete_cart_item, increase_item_quantity } from '../Redux/CartConstant';
 import {useNavigate} from "react-router-dom"
 export default function Cart() {
   const {cartData}= useSelector((store)=>store.CartReducer);
-  const [itemQuanitiy,setItemQuantity]=useState(1);
   const navigate=useNavigate()
   const dispatch=useDispatch()
   //.log(cartData)
@@ -30,7 +29,7 @@ export default function Cart() {
           {
             cartData.length? cartData.map((e , i)=>{
               return (
-                <div className="cart_content_main">
+                <div className="cart_content_main" id={e.id}>
               <img src="https://geektrust.s3.ap-southeast-1.amazonaws.com/coding-problems/shopping-cart/polo-tshirts.png" alt="" />
                <div className="price_and_title_box">
                 <p>{e.name}</p>
@@ -38,9 +37,13 @@ export default function Cart() {
                </div>
                <div className="button_box">
                  <div className="increase_decrease_box">
-                  <button>+</button>
-                  <div style={{marginTop:"6px"}}>{itemQuanitiy}</div>
-                  <button>-</button>
+                  <button onClick={()=>{
+                     dispatch(increase_item_quantity(e.id))
+                  }}>+</button>
+                  <div style={{marginTop:"6px"}}>{e.currentQuantity}</div>
+                  <button onClick={()=>{
+                      dispatch(decrease_item_quantity(e.id))
+                  }}>-</button>
                  </div>
                   <button onClick={()=>{
                       console.log("clicked item id" , e.id, e)
