@@ -6,17 +6,20 @@ const initialState={
 
 export const CartReducer=(store=initialState,{type,payload})=>{
       switch(type){
-         case ADD_CART_ITEM: 
-          const temp= store.cartData;
-          temp.push(payload)
-         return {...store , cartData:[...temp]}
-         case DELETE_CART_ITEM : return {cartData:deleteItem(store.cartData,payload)}
+         case ADD_CART_ITEM: return {...store , cartData:[...addToCart(store,payload)]}
+         case DELETE_CART_ITEM : return {...store,cartData:[...deleteItem(store,payload)]}
          default: return store
       }
 }
 
 const deleteItem=(cart,id)=>{
-    // let ans=cart.filter(e=>e.id!=id)
-    // console.log(ans)
-    return cart.filter(e=>e.id!=id)
+     let  rest_cart_data=cart.cartData.filter(e=>e.id!=id)
+     console.log("cart after deleting data" , cart.cartData);
+   return rest_cart_data
+}
+
+const addToCart=(cart,item)=>{
+    const temp= cart.cartData;
+    temp.push(item)
+    return temp
 }
