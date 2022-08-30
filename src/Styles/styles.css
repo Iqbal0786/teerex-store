@@ -256,6 +256,7 @@ button{
     .contentDiv >.product_list_div{
     grid-template-columns: repeat(1,1fr);
     grid-gap: 25px;
+    padding: 0px;
    }
    .check_box > input{
   margin-left: -70%;
