@@ -34,6 +34,9 @@ const deleteItem = (cart, id) => {
 };
 
 const addToCart = (cart, item) => {
+   if(cart.cartData){
+
+   }
   const temp = cart.cartData;
   let currentItem = { currentQuantity: 1, ...item };
   console.log("current updated item", currentItem);
