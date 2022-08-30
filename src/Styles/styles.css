@@ -274,6 +274,42 @@ button{
     width:  50%;
     
    }
+   .cart_main{
+    width: 100%;
+    /* border: 1px solid red; */
+   }
+   .cart_main > .cart_content{
+    width: 100%;
+    /* border: 1px solid blue; */
+    margin: 0px;
+   }
+   .button_box > button{
+    width: 60px;
+    height: 30px;
+    margin-top: 8px;
+}
+.increase_decrease_box{
+    margin-top: 9px;
+}
+.increase_decrease_box > button{
+    width: 40px;
+    height: 30px;
+    font-size: 19px;
+    margin-top: 3px;
+}
+.price_and_title_box > p{
+    font-family: sans-serif;
+    font-size: 16px;
+}
+.price_and_title_box >h4{
+    font-size: 15px;
+}
+.no_cart_item_div > p{
+    font-size: 17px;
+}
+.cart_main >p{
+    font-size: 17px;
+}
   }
 
   
