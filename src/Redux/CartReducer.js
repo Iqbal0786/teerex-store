@@ -12,13 +12,13 @@ const initialState = {
 export const CartReducer = (store = initialState, { type, payload }) => {
   switch (type) {
     case ADD_CART_ITEM:
-      return { ...store, cartData: [...addToCart(store, payload)] };
+      return { ...store, cartData: [...addToCart(store, payload)] }
     case DELETE_CART_ITEM:
-      return { ...store, cartData: [...deleteItem(store, payload)] };
+      return { cartData: [...deleteItem(store, payload)] }
     case INCREASE_ITEM_QUANTITY:
-      return { ...store, cartData: [...increaseQuantity(store, payload)] };
+      return { cartData: [...incrementQuantity(store.cartData,payload)] }
     case DECREASE_ITEM_QUANTITY:
-      return { ...store, cartData: [...decreaseQuantity(store, payload)] };
+      return { cartData: [...decrementQuantity(store.cartData,payload)] }
     default:
       return store;
   }
@@ -38,31 +38,13 @@ const addToCart = (cart, item) => {
   return temp;
 };
 
-const increaseQuantity = (cart, id) => {
-  let updatedCart = cart.cartData.filter((e) => {
-    if (e.id == id) {
-      let curelem = e;
-      curelem.currentQuantity++;
-      return curelem;
-    }
+const incrementQuantity=(cart,id)=>{
 
-  });
-//  let updatedCart=[]
-//    for(let i=0;i<cart.cartData.length;i++){
-//      if(cart.cartData[i].id==id){
-//         cart.cartData[i].currentQuantity++
-//         updatedCart.push(cart.cartData[i])
-//      }
-//    }
-  console.log("cart after increase quantity", updatedCart);
-  return updatedCart;
-};
-const decreaseQuantity = (cart, id) => {
-  let updatedCart = cart.cartData.filter((e) => {
-    if (e.id == id && e.currentQuantity > 1) {
-      e.currentQuantity--;
-      return e;
-    }
-  });
-  return updatedCart;
-};
+  return cart.filter((e)=>e.id==id?e.currentQuantity++:e)
+   
+}
+const decrementQuantity=(cart,id)=>{
+
+  return cart.filter((e)=>e.id==id?e.currentQuantity--:e)
+   
+}
