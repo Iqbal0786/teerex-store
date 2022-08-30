@@ -42,6 +42,12 @@ export default function Cart() {
                <div className="button_box">
                  <div className="increase_decrease_box">
                   <button onClick={()=>{
+                    // checking quantity limit 
+                     let itemIndex= cartData.findIndex((e)=>e.currentQuantity>e.quantity);
+                     if(itemIndex!=-1){
+                     alert("Item quantity limit is exceeded ")
+                      return 
+                     }
                      dispatch(increase_item_quantity(e.id))
                   }}>+</button>
                   <div style={{marginTop:"6px"}}>{e.currentQuantity}</div>
