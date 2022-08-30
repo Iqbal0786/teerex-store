@@ -1,14 +1,17 @@
 import React, { useEffect, useState } from 'react'
 import "../Styles/styles.css"
 import {useDispatch, useSelector} from "react-redux"
-import { decrease_item_quantity, delete_cart_item, increase_item_quantity } from '../Redux/CartConstant';
+import { decrease_item_quantity, delete_cart_item, get_total_item_price, increase_item_quantity } from '../Redux/CartConstant';
 import {useNavigate} from "react-router-dom"
 export default function Cart() {
-  const {cartData}= useSelector((store)=>store.CartReducer);
+  const {cartData }= useSelector((store)=>store.CartReducer);
   const navigate=useNavigate()
   const dispatch=useDispatch()
+   let totalPrice=0;
   //.log(cartData)
   console.log("current item in cart ", cartData)
+
+  
 
   return (
     <>
@@ -24,16 +27,17 @@ export default function Cart() {
       </div>
     </div>
     <div className="cart_main">
-       <p>Shopping Cart</p>
+       <p>Shopping Cart</p> 
        <div className="cart_content">
           {
             cartData.length? cartData.map((e , i)=>{
+              {totalPrice= totalPrice+(e.price*e.currentQuantity)}
               return (
                 <div className="cart_content_main" id={e.id}>
               <img src="https://geektrust.s3.ap-southeast-1.amazonaws.com/coding-problems/shopping-cart/polo-tshirts.png" alt="" />
                <div className="price_and_title_box">
                 <p>{e.name}</p>
-                <h4>Rs {e.price}</h4>
+                <h4>Rs {e.price * e.currentQuantity}</h4>
                </div>
                <div className="button_box">
                  <div className="increase_decrease_box">
@@ -59,6 +63,8 @@ export default function Cart() {
           }
           
         </div>
+
+        <h4>Total payable amount : {totalPrice}</h4>
     </div>
 
      

@@ -2,11 +2,13 @@ import {
   ADD_CART_ITEM,
   DECREASE_ITEM_QUANTITY,
   DELETE_CART_ITEM,
+  GET_TOTAL_ITEM_PRICE,
   INCREASE_ITEM_QUANTITY,
 } from "./CartConstant";
 
 const initialState = {
   cartData: [],
+  totalPrice:0
 };
 
 export const CartReducer = (store = initialState, { type, payload }) => {
@@ -19,6 +21,7 @@ export const CartReducer = (store = initialState, { type, payload }) => {
       return { cartData: [...incrementQuantity(store.cartData,payload)] }
     case DECREASE_ITEM_QUANTITY:
       return { cartData: [...decrementQuantity(store.cartData,payload)] }
+      case  GET_TOTAL_ITEM_PRICE : return {...store,totalPrice:calulatePrice(store.cartData)}
     default:
       return store;
   }
@@ -47,4 +50,8 @@ const decrementQuantity=(cart,id)=>{
 
   return cart.filter((e)=>e.id==id?e.currentQuantity--:e)
    
+}
+
+const calulatePrice=(cart)=>{
+  //  return cart.reduce((acc,e)=> (acc+e.price)*e.currentQuantity ,0)
 }
