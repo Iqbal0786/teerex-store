@@ -247,3 +247,43 @@ button{
     color: blue;
     cursor: pointer;
 }
+
+
+@media only screen and (max-width: 600px) {
+    .contentDiv >.product_list_div{
+    grid-template-columns: repeat(1,1fr);
+    grid-gap: 25px;
+   }
+   .check_box > input{
+  margin-left: -70%;
+   }
+   .check_box > label{
+    font-size: 11px;
+   }
+   .checkBoxDiv{
+    width: 100%;
+   }
+   .checkBoxDiv>h4{
+    font-size: 15px;
+   }
+  }
+
+  
+@media only screen and (min-width: 600px) and (max-width:992px) {
+    .contentDiv >.product_list_div{
+    grid-template-columns: repeat(2,1fr);
+    grid-gap: 25px;
+   }
+   .check_box > input{
+  margin-left: -70%;
+   }
+   .check_box > label{
+    font-size: 19px;
+   }
+   .checkBoxDiv{
+    width: 100%;
+   }
+   .checkBoxDiv>h4{
+    font-size: 19px;
+   }
+  }
