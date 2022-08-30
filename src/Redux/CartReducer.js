@@ -51,7 +51,7 @@ const incrementQuantity=(cart,id)=>{
 }
 const decrementQuantity=(cart,id)=>{
 
-  return cart.filter((e)=>e.id==id?e.currentQuantity--:e)
+  return cart.filter((e)=>e.id==id && e.currentQuantity>1?e.currentQuantity--:e)
    
 }
 
