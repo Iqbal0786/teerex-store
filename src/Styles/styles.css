@@ -214,6 +214,7 @@ input{
     display: flex;
     justify-content: space-around;
     margin-right: 15px;
+   
   }
 .button_box > .increase_decrease_box{
     width: 40%;
@@ -234,7 +235,9 @@ input{
     height: 40px;
     border-radius: 50%;
     border: none;
-    color:black
+    color:black;
+    background-color: rgb(255, 217, 0);
+    font-size: 19px;
 }
 button{
     cursor: pointer;
