@@ -64,7 +64,7 @@ export default function Cart() {
           
         </div>
 
-        <h4>Total payable amount : {totalPrice}</h4>
+        <h4 style={{marginLeft:"13%" , marginTop:"10px"}}>Total payable amount : {totalPrice==0?"":totalPrice}</h4>
     </div>
 
      
